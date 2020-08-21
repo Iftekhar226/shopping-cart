@@ -19,7 +19,6 @@ class NavBar extends Component {
   getNavbarNotificationCountBadge = () => {
     let navNotificBadge = "badge m-2 badge-";
     navNotificBadge += this.props.count === 0 ? "warning" : "primary";
-    console.log(navNotificBadge);
     return navNotificBadge;
   };
 }

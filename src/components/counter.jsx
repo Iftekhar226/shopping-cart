@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 
 class Counter extends Component {
-  state = {
-    count: this.props.value,
-  };
   style = {
     fontSize: 15,
     fontWeight: "bold",
@@ -20,43 +17,35 @@ class Counter extends Component {
           {this.forCounter()}
         </span>
         <button
-          className="btn btn-secondary btn-sm"
-          onClick={this.handelIncrement}
+          className="btn btn-secondary btn-sm m-2"
+          onClick={() => this.props.onIncrement(this.props.counter)}
         >
           Increment
         </button>
         <button
-          className="btn btn-secondary btn-sm"
-          onClick={this.handelDecrement}
+          className="btn btn-secondary btn-sm m-2"
+          onClick={() => this.props.onDecrement(this.props.counter)}
         >
           Decrement
         </button>
         <button
           className="btn btn-danger btn-sm m-2"
-          onClick={() => this.props.onDelete(this.props.id)}
+          onClick={() => this.props.onDelete(this.props.counter.id)}
         >
           Delete
         </button>
       </div>
     );
   }
-  handelIncrement = () => {
-    // console.log("dsdfsef", this.state.count);
-    this.setState({
-      count: this.state.count + 1,
-    });
-  };
-  handelDecrement = () => {
-    if (this.state.count >= 1) this.setState({ count: this.state.count - 1 });
-  };
+
   getBadgeClasses() {
     let classes = " badge m-2 badge-";
-    classes += this.state.count === 0 ? "warning" : "primary";
+    classes += this.props.counter.value === 0 ? "warning" : "primary";
     return classes;
   }
 
   forCounter() {
-    const { count } = this.state;
+    let count = this.props.counter.value;
     return count === 0 ? "ZERO" : count;
   }
 }

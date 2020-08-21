@@ -45,7 +45,9 @@ class App extends Component {
   render() {
     return (
       <React.Fragment className="App">
-        <NavBar />
+        <NavBar
+          count={this.state.counters.filter((c) => c.value >= 1).length}
+        />
         <main class="container">
           <Counters
             onDecrement={this.handleDecrement}

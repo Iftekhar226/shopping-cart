@@ -12,8 +12,7 @@ export class Counters extends Component {
           >
             Reset
           </button>
-        )) ||
-          " <h1>All items are remove successfully</h1>"}
+        )) || <h1>All items are remove successfully</h1>}
         {this.props.counters.map((counter) => (
           <Counter
             key={counter.id}
